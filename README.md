@@ -8,6 +8,9 @@ To collect interesting information about your Android APK:
 * \# methods (useful for monitoring the magical 65k dex limit)
 * \# classes
 
+## How?
+Run this script in any folder containing one or more .apk files.
+
 ### Result (normal mode):
 
     user$ apk-stats.sh
