@@ -25,11 +25,11 @@ The custom metrics are reported like this:
 	apk-stats.sh teamcity
 	Team City system messages enabled!
 	classes	methods	dex-bytes	apk-bytes	apk
-    790	6451	9027848	1080992	SomeApp-production.apk
+    790	6451	3027848	5800992	SomeApp-production.apk
 	##teamcity[buildStatisticValue key='classes-SomeApp-production.apk' value='790']
 	##teamcity[buildStatisticValue key='methods-SomeApp-production.apk' value='6451']
-	##teamcity[buildStatisticValue key='dex-size-SomeApp-production.apk' value='9027848']
-	##teamcity[buildStatisticValue key='apk-size-SomeApp-production.apk' value='1080992']
+	##teamcity[buildStatisticValue key='dex-size-SomeApp-production.apk' value='3027848']
+	##teamcity[buildStatisticValue key='apk-size-SomeApp-production.apk' value='5800992']
 
 
 Team City will automatically pick up these values and you'll see them under the job's _Parameters_ tab and under _Reported statistic values_. Click on this graph to see the trend.
