@@ -53,5 +53,5 @@ if [[ ! -d $1 && $1 == "teamcity" ]]; then
 	TEAMCITY=1
 fi
 
-echo "classes\tmethods\\tdex-bytes\tapk-bytes\tapk"
+echo "classes\tmethods\\tdex-bytes\tapk-bytes\tfile"
 process_all_apks
