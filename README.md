@@ -20,7 +20,7 @@ Run this script in any folder containing one or more .apk files.
     700	6661	9027848	1081010	SomeApp-stage.apk
 
 ## Team City Support
-To collect this information from a Team City job it supports TC's [system messages](http://confluence.jetbrains.com/display/TCD8/Custom+Chart) which you in turn can use to create nice charts for your project/job configuration.
+To collect this information from a [Team City](http://www.jetbrains.com/teamcity/) job it supports TC's [system messages](http://confluence.jetbrains.com/display/TCD8/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ServiceMessages) which you in turn can use to create nice [custom charts](http://confluence.jetbrains.com/display/TCD8/Custom+Chart) for your project/job configuration.
 
 The custom metrics are reported like this:
 
