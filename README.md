@@ -1,7 +1,7 @@
 # APK Information Script
 
 ## Why?
-To collect interesting information about your APK:
+To collect interesting information about your Android APK:
 
 * APK size in bytes
 * classes.dex size in bytes
