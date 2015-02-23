@@ -1,9 +1,16 @@
 #!/bin/sh
 
-DEXDUMP=$ANDROID_HOME/build-tools/19.1.0/dexdump
+DEXDUMP=$ANDROID_HOME/build-tools/21.0.0/dexdump
 DEX_FILE="classes.dex"
 FORMAT_TERMINAL="%s\t%s\t%s\t%s\t%s\n"
 TEAMCITY=0
+STAT_ARGS=unknown
+
+if [[ $(uname) == "Darwin" ]]; then
+	STAT_ARGS=-f%z
+else
+	STAT_ARGS=-c%s
+fi
 
 die()
 {
@@ -31,8 +38,8 @@ process_apk()
 	unzip -q -j $1 $DEX_FILE -d . || die "Could not unzip ${1}, does file exists?"
 	CLASS_COUNT=$($DEXDUMP $DEX_FILE | grep 'Class descriptor' | wc -l)
 	METHOD_COUNT=$(cat $DEX_FILE | head -c 92 | tail -c 4 | hexdump -e '1/4 "%d"')
-	DEX_SIZE=$(stat -f%z $DEX_FILE)
-	APK_SIZE=$(stat -f%z $1)
+	DEX_SIZE=$(stat $STAT_ARGS $DEX_FILE)
+	APK_SIZE=$(stat $STAT_ARGS $1)
 	print_result_terminal $1 $CLASS_COUNT $METHOD_COUNT $DEX_SIZE $APK_SIZE
 	if [ $TEAMCITY == 1 ]; then
 		print_result_teamcity $1 $CLASS_COUNT $METHOD_COUNT $DEX_SIZE $APK_SIZE
@@ -53,5 +60,5 @@ if [[ ! -d $1 && $1 == "teamcity" ]]; then
 	TEAMCITY=1
 fi
 
-echo "classes\tmethods\\tdex-bytes\tapk-bytes\tfile"
+echo "classes\tmethods\\tdex-bytes\tapk-bytes\tapk"
 process_all_apks
